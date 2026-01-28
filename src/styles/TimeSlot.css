@@ -1,0 +1,195 @@
+/* frontend/src/styles/TimeSlot.css */
+
+.time-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  min-width: 100px;
+  min-height: 70px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  gap: 4px;
+}
+
+/* Time display */
+.slot-time {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* Available state - default clickable slots */
+.time-slot.available {
+  border-color: #4CAF50;
+  background-color: #f1f8f4;
+}
+
+.time-slot.available:hover {
+  border-color: #45a049;
+  background-color: #e8f5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+}
+
+.time-slot.available:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+}
+
+/* Selected state */
+.time-slot.selected {
+  border-color: #2196F3;
+  background-color: #2196F3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.time-slot.selected .slot-time {
+  color: white;
+}
+
+.time-slot.selected:hover {
+  background-color: #1976D2;
+  border-color: #1976D2;
+}
+
+/* Checkmark for selected slots */
+.slot-checkmark {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Disabled state - booked or past slots */
+.time-slot.disabled {
+  border-color: #cccccc;
+  background-color: #f5f5f5;
+  color: #999999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.time-slot.disabled .slot-time {
+  color: #999999;
+}
+
+.time-slot.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Status labels (Closed/Booked) */
+.slot-status {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Closing soon state */
+.time-slot.closing-soon {
+  border-color: #FF9800;
+  background-color: #fff3e0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.time-slot.closing-soon:hover {
+  border-color: #F57C00;
+  background-color: #ffe0b2;
+}
+
+/* Countdown display */
+.slot-countdown {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FF9800;
+  background-color: rgba(255, 152, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Pulse animation for closing soon slots */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 152, 0, 0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .time-slot {
+    min-width: 90px;
+    min-height: 65px;
+    padding: 10px 14px;
+  }
+
+  .slot-time {
+    font-size: 14px;
+  }
+
+  .slot-status,
+  .slot-countdown {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-slot {
+    min-width: 80px;
+    min-height: 60px;
+    padding: 8px 12px;
+  }
+
+  .slot-time {
+    font-size: 13px;
+  }
+
+  .slot-checkmark {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+  }
+}
+
+/* Focus state for accessibility */
+.time-slot:focus {
+  outline: 3px solid #2196F3;
+  outline-offset: 2px;
+}
+
+.time-slot:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Disabled button pointer events */
+.time-slot:disabled {
+  pointer-events: none;
+}
