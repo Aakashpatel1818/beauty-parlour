@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+
+  
+const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
