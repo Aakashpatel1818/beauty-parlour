@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -7,78 +10,84 @@ const Home = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const services = [
     {
-      title: 'Facial Treatments',
-      description: 'Rejuvenate your skin with our signature facial therapies',
-      icon: '✨',
-      delay: '0.1s'
+      title: "Facial Treatments",
+      description: "Rejuvenate your skin with our signature facial therapies",
+      icon: "✨",
+      delay: "0.1s",
     },
     {
-      title: 'Hair Styling',
-      description: 'Transform your look with expert hair design',
-      icon: '💇',
-      delay: '0.2s'
+      title: "Hair Styling",
+      description: "Transform your look with expert hair design",
+      icon: "💇",
+      delay: "0.2s",
     },
     {
-      title: 'Makeup Artistry',
-      description: 'Professional makeup for every occasion',
-      icon: '💄',
-      delay: '0.3s'
+      title: "Makeup Artistry",
+      description: "Professional makeup for every occasion",
+      icon: "💄",
+      delay: "0.3s",
     },
     {
-      title: 'Nail Care',
-      description: 'Luxurious manicures and pedicures',
-      icon: '💅',
-      delay: '0.4s'
+      title: "Nail Care",
+      description: "Luxurious manicures and pedicures",
+      icon: "💅",
+      delay: "0.4s",
     },
     {
-      title: 'Spa & Massage',
-      description: 'Unwind with our therapeutic treatments',
-      icon: '🌸',
-      delay: '0.5s'
+      title: "Spa & Massage",
+      description: "Unwind with our therapeutic treatments",
+      icon: "🌸",
+      delay: "0.5s",
     },
     {
-      title: 'Bridal Packages',
-      description: 'Complete beauty solutions for your special day',
-      icon: '👰',
-      delay: '0.6s'
-    }
+      title: "Bridal Packages",
+      description: "Complete beauty solutions for your special day",
+      icon: "👰",
+      delay: "0.6s",
+    },
   ];
 
   const testimonials = [
     {
-      name: 'Sarah Mitchell',
-      text: 'The most incredible beauty experience I\'ve ever had. The attention to detail is unmatched.',
-      rating: 5
+      name: "Sarah Mitchell",
+      text: "The most incredible beauty experience I've ever had. The attention to detail is unmatched.",
+      rating: 5,
     },
     {
-      name: 'Emma Rodriguez',
-      text: 'My go-to salon for all beauty needs. Professional, luxurious, and always exceeds expectations.',
-      rating: 5
+      name: "Emma Rodriguez",
+      text: "My go-to salon for all beauty needs. Professional, luxurious, and always exceeds expectations.",
+      rating: 5,
     },
     {
-      name: 'Priya Sharma',
-      text: 'From the moment I walked in, I felt pampered. The results speak for themselves!',
-      rating: 5
-    }
+      name: "Priya Sharma",
+      text: "From the moment I walked in, I felt pampered. The results speak for themselves!",
+      rating: 5,
+    },
   ];
 
   return (
     <>
       <Helmet>
         <title>Luxe Beauty Studio - Premium Beauty Treatments</title>
-        <meta name="description" content="Experience luxury beauty treatments with expert care and premium products" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        <meta
+          name="description"
+          content="Experience luxury beauty treatments with expert care and premium products"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
 
       <style>{`
@@ -533,15 +542,15 @@ const Home = () => {
           <div className="shape shape-2"></div>
           <div className="shape shape-3"></div>
         </div>
-        
+
         <div className="hero-content">
           <div className="hero-subtitle">Welcome to Luxury</div>
           <h1 className="hero-title">
             Your Beauty, <strong>Our Passion</strong>
           </h1>
           <p className="hero-description">
-            Experience luxury beauty treatments with expert care and premium products. 
-            Where elegance meets excellence.
+            Experience luxury beauty treatments with expert care and premium
+            products. Where elegance meets excellence.
           </p>
           <div className="cta-buttons">
             <button className="btn btn-primary">Book Appointment</button>
@@ -550,7 +559,13 @@ const Home = () => {
         </div>
 
         <div className="scroll-indicator">
-          <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </div>
@@ -560,12 +575,13 @@ const Home = () => {
       <section className="section services-section">
         <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle">
-          Discover our comprehensive range of beauty treatments designed to enhance your natural radiance
+          Discover our comprehensive range of beauty treatments designed to
+          enhance your natural radiance
         </p>
         <div className="services-grid">
           {services.map((service, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="service-card"
               style={{ animationDelay: service.delay }}
             >
@@ -611,7 +627,7 @@ const Home = () => {
               <p className="testimonial-text">"{testimonial.text}"</p>
               <div className="testimonial-author">{testimonial.name}</div>
               <div className="testimonial-rating">
-                {'★'.repeat(testimonial.rating)}
+                {"★".repeat(testimonial.rating)}
               </div>
             </div>
           ))}
@@ -625,8 +641,16 @@ const Home = () => {
           Book your appointment today and experience the luxury you deserve
         </p>
         <div className="cta-buttons">
-          <button className="btn btn-primary">Book Now</button>
-          <button className="btn btn-secondary">Contact Us</button>
+          <button className="btn btn-primary" onClick={() => navigate("/booking")}>
+            Book Appointment
+          </button>
+
+          <button
+            className="btn btn-secondary"
+            onClick={() => navigate("/services")}
+          >
+            View Services
+          </button>
         </div>
       </section>
     </>
