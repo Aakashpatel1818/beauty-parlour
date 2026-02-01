@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/AdminDashboard.css';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('bookings');
