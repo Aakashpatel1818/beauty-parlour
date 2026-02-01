@@ -1,19 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { Provider } from 'react-redux';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
 
-import store from './redux/store';
+import store from "./redux/store";
 
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
 
-import Home from './pages/Home.jsx';
-import Services from './pages/Services.jsx';
-import Booking from './pages/Booking.jsx';
-import Gallery from './pages/Gallery.jsx';
-import Reviews from './pages/Reviews.jsx';
-import AdminDashboard from './pages/AdminDashboard.jsx';
+import Home from "./pages/Home.jsx";
+import Services from "./pages/Services.jsx";
+import Booking from "./pages/Booking.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import Reviews from "./pages/Reviews.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <HelmetProvider>
         <Router>
           <Header />
-          <main style={{ minHeight: '80vh' }}>
+          <main style={{ minHeight: "80vh" }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
